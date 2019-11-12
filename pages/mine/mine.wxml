@@ -1,0 +1,18 @@
+<!--pages/mine/mine.wxml-->
+<view class="page">
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.clerkPhoto}}" ></image>
+    <text  class="userinfo-nickname">{{userInfo.clerkName}} {{userInfo.clerkRole=="1"?"(店长)":"(店员)"}}</text>
+  </view>
+  <view class="list-wrapper">
+    <block wx:for="{{menuitems}}" wx:key="item">
+      <navigator url="{{item.url}}" class="list-item" hover-class="list-item_active">
+        <view class='item'>
+          <image class='item-image' src='{{item.icon}}'></image>
+          <text class="item-text">{{item.text}}</text>
+          <image class='item-array' src="{{toright}}"></image>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

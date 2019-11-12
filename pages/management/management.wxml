@@ -1,0 +1,31 @@
+<!--pages/other/other.wxml-->
+<view class="page">
+  <view class="page-nav">
+    <view class="page-item" wx:for="{{sectionNav}}" wx:key="*this" bindtap="kantie" data-id="{{item.url}}">
+      <image class="nav-item" src="{{item.cove}}"></image>
+      <text style="color:#fff">{{item.text}}</text>
+    </view>
+  </view>
+  <view class="wcharts">
+    <view class="wcharts-tit">
+      <text class="fonts">本周销售额</text>
+      <!-- <view>
+        <text class="line-left">本周</text>
+        <text class="line-right">上周</text>
+      </view> -->
+    </view>
+    <text style="padding-left:20px;color:#D8D8D8">(元)</text>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  </view>
+   <view class="wcharts">
+    <view class="wcharts-tit">
+      <text class="fonts">截止昨天销售同比增长（本月）</text>
+      <!-- <view>
+        <text class="line-left">今年本月</text>
+        <text class="line-right">去年本月</text>
+      </view> -->
+    </view>
+    <text style="padding-left:20px;color:#D8D8D8">(元)</text>
+    <canvas canvas-id="lineCanvas2" disable-scroll="true" class="canvas" bindtouchstart="touchHandler2"></canvas>
+  </view>
+</view>

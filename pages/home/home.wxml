@@ -1,0 +1,29 @@
+<!--pages/home/home.wxml-->
+<view class="page">
+  <view class="page-section page-section-spacing swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previous}}" next-margin="{{next}}">
+      <block wx:for="{{images}}" wx:key="*this">
+        <swiper-item>
+          <image class="swiper-item" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="page-nav">
+    <view class="page-item" wx:for="{{sectionNav}}" wx:key="*this" bindtap="kantie" data-id="{{item.url}}">
+      <image class="nav-item" src="{{item.cove}}"></image>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+  <view class="wcharts">
+    <view class="wcharts-tit">
+      <text class="fonts">本周销售额</text>   
+      <!-- <view>
+        <text class="line-left">本周</text>
+        <text class="line-right">上周</text>
+      </view> -->
+    </view>
+    <text style="padding-left:20px;color:#D8D8D8">(元)</text>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  </view>
+</view>

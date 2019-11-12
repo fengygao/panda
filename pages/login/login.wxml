@@ -1,0 +1,46 @@
+<!--pages/login/login.wxml-->
+<view class="page-body">
+  <view>
+    <view class="section__ctn">
+      <image class="lab-img" src="{{src}}"></image>
+    </view>
+    <view class="page-section">
+      <!-- <text>手机号 :</text> -->
+      <image class="code-img" src="{{phone}}"></image>
+      <input class="weui-input" placeholder-style="color:#999999" placeholder="请输入手机号" type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus />
+      <view class="msgsend">
+        <text wx:if="{{send}}" bindtap="sendMsg" style="color:#409EFF">{{info}}</text>
+        <text wx:if="{{alreadySend}}" style="color:red" >{{second+"s"}}</text>
+      </view>
+    </view>
+    <view class="page-section">
+      <!-- <text>验证码 :</text> -->
+      <image class="code-img" src="{{acode}}"></image>
+      <input class="weui-input" type="number" bindinput="addCode" placeholder-style="color:#999999" placeholder="请输入验证码" />
+    </view>
+    <button type="warn" disabled="{{disabled}}" bindtap="onSubmit" open-type="getUserInfo">绑定手机号</button>
+  </view>
+  <view class="title">乐坊商城</view>
+</view>
+<!-- <view class="page-body">
+  <view> 
+    <view class="section__ctn">  
+      <image class="lab-img" src="{{src}}"></image>
+    </view>   
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="12" placeholder-style="color:#999999" placeholder="请输入手机号" bindinput="getUserName"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" password type="text" placeholder-style="color:#999999" placeholder="请输入验证码" bindinput="getPassword" />
+        </view>
+      </view>
+    </view>
+    <button type="warn" bindtap="SignIn">手机绑定</button>
+  </view>
+</view> -->

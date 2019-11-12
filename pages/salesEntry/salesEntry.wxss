@@ -1,0 +1,64 @@
+/* pages/salesEntry/salesEntry.wxss */
+.page-body{
+   background-color: #f5f5f5;
+   width:100%;
+   height:100vh;
+   padding-top:1rpx;
+}
+.page-ul{
+ margin: 20rpx 0;
+  width:100%;
+  background: #fff;
+}
+.page-item{
+  height:120rpx;
+  line-height: 120rpx;
+  margin-left: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-right:30rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+.page-item:last-child {
+   border:0;
+}
+.weui-input{
+  text-align: right;
+  height:120rpx;
+}
+.btninfo{
+  position: fixed;
+  bottom: 20rpx;
+  width: 95vw;
+  margin:0 20rpx;
+}
+.button-hover {
+  background-color: rgb(255, 81, 0);
+}
+/* 添加图片 */
+.shopimg{
+  height: 320rpx;
+  background: #fff;
+  padding: 0 30rpx;
+}
+.shopimgtxt{
+  font-size: 28rpx;
+  line-height: 102rpx;
+}
+.imgs{
+  float: left;
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 18rpx;
+  position: relative;
+  overflow: visible;
+}
+
+.removeimg{
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}

@@ -1,0 +1,23 @@
+<!--pages/myStaff/myStaff.wxml-->
+<view class="staff">
+  <view wx:if="{{clerkRole=='1'}}">
+    <view>
+      <block wx:for="{{stafflist}}" wx:key="id">
+        <view class="staffli" hover-class="staffli_active" data-index='{{index}}' bindtap="staffDetail">
+          <image class='item-image' src='{{item.clerkPhotoList[0].path}}'></image>
+          <view class='textcon'>
+            <view class="textcon-1">{{item.clerkName}}{{item.clerkRole=="1"?"(店长)":"(店员)"}}</view>
+            <view class="textcon-2">入店时间：{{item.entryTimeStr}}</view>
+          </view>
+        </view>
+      </block>
+      <view class="btninfo">
+        <navigator url="../addstaff/addstaff" class="list-item">+ 新增员工</navigator>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <image class="conimg" src="../../image/newpage.png"></image>
+    <view wx:if="{{clerkRole}}" style="text-align: center;color:red;margin-top:60rpx;">抱歉，你是店员权限!</view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+{
+  "pages": [   
+   "pages/login/login",
+   "pages/home/home",
+    "pages/salesEntry/salesEntry", 
+    "pages/myStaff/myStaff",
+    "pages/mySales/mySales",
+    "pages/addstaff/addstaff",   
+    "pages/staffItem/staffItem",
+    "pages/editstaff/editstaff",       
+    "pages/mine/mine",        
+    "pages/management/management"
+  ],
+ 
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "乐坊商户服务",
+    "backgroundColor": "#F3F3F3",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "selectedColor": "#1296db", 
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "image/Pagehome1.png",
+        "selectedIconPath": "image/Pagehome2.png",
+        "text": "首页"
+      },
+      
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/mine1.png",
+        "selectedIconPath": "image/mine2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxdb9bfca99c68a888"
+  ],
+  "sitemapLocation": "sitemap60.json"
+}

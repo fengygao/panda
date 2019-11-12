@@ -1,0 +1,74 @@
+/* pages/login/login.wxss */
+
+button {
+  margin: 90rpx 60rpx;
+}
+.button-hover {
+  background-color: rgb(255, 81, 0);
+}
+.section__ctn .lab-img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+.section__ctn {
+  width: 125rpx;
+  height:125rpx;
+  -moz-box-shadow:6rpx 6rpx 12rpx 4rpx #ccc; 
+  box-shadow:6rpx 6rpx 12rpx 4rpx #ccc;
+  border-radius: 6rpx;
+  text-align: center;
+  margin: 120rpx auto;
+  padding:10rpx 6rpx;
+
+}
+.code-img {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+}
+.recommend {
+  text-align: center;
+  height: 50rpx;
+  margin: 40rpx 60rpx;
+}
+.recommend-title {
+  display: table;
+  width: 100%;
+  line-height: 50rpx;
+  white-space: nowrap;
+  border-spacing: 1rem 0;
+  font-size: 30rpx;
+  color: #409eff;
+}
+.recommend-title::before, .recommend-title::after {
+  display: table-cell;
+  content: "";
+  width: 50%;
+  background: linear-gradient(#409eff, #409eff) repeat-x center;
+  background-size: 0.1rem 0.1rem;
+}
+.page-section {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #d9d9d9;
+  line-height: 84rpx;
+  margin: 20rpx 80rpx;
+}
+.weui-input {
+  margin: 0 6px;
+  width: 360rpx;
+}
+.msgsend {
+  width: 70px;
+  text-align: right;
+}
+.title{color: #999;text-align: center;font-size: 28rpx;}
+
+.title:before,.title:after{content: "";width: 100px;border-top: 1px #ccc solid; display: inline-block;
+
+vertical-align: middle;}
+
+.title:before{margin-right: 10px;}
+
+.title:after{margin-left: 10px;}

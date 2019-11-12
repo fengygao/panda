@@ -1,0 +1,54 @@
+<!--pages/salesEntry/salesEntry.wxml-->
+<view class="page-body">
+  <view class="page-ul">
+    <view class="page-item">
+      <text>品牌名</text>
+      <text style="color:#999">{{sectioninfo.brandName}}</text>
+    </view>
+    <view class="page-item">
+      <text>合同号</text>
+      <text style="color:#999">{{sectioninfo.contNo}}</text>
+    </view>
+  </view>
+  <view class="page-ul">
+    <view class="page-item">
+      <text>类型</text>
+      <text style="color:#999">{{sectioninfo.layoutName}}</text>
+    </view>
+    <view class="page-item">
+      <text>销售额</text>
+      <input class="weui-input" type="number" value="{{salesvolume}}" placeholder="请输入" bindinput="input1" />
+    </view>
+    <view class="page-item">
+      <text>销售笔数</text>
+      <input class="weui-input" type="number" value="{{salespens}}" placeholder="请输入" bindinput="input2" />
+    </view>
+    <view class="page-item">
+      <text>录入时间</text>
+      <view class="section">
+        <picker mode="date" value="{{saleinfo.date}}" start="{{start}}" end="{{end}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date || '请选择 >'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+    <!-- 商品图片 -->
+    <view class='shopimg'>
+      <view class='shopimgtxt'>上传小票图片</view>
+      <view class='shopimgs'>
+        <!-- 上传的图片 -->
+        <view wx:for="{{tempFilePaths}}" wx:key="{{index}}" class='imgcommon'>
+          <image src="{{item}}" data-index='{{index}}' catchtap='previewImg' mode="aspecFill" class='imgs'>
+            <image src='../../image/redcha.png' catchtap='removeimg' class='removeimg' data-index="{{index}}"></image>
+          </image>
+        </view>
+        <!-- 添加图片的按钮，图片超过3张消失-->
+        <image  src='../../image/addimg.png' class='imgs' bindtap='chooseimage'></image>
+      </view>
+  </view>
+  <view class="btninfo">
+    <button type="primary" disabled="{{disabled}}" bindtap="btnsubmit">提交</button>
+  </view>
+</view>

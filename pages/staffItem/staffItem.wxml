@@ -1,0 +1,46 @@
+<!--pages/addstaff/addstaff.wxml-->
+<view class="page-body">
+  <view class="staffli">
+    <image class='item-image' src='{{stafflist.clerkPhotoList[0].path}}'></image>
+    <view class='textcon'>
+      <view class="textcon-1">{{stafflist.clerkName}}{{stafflist.clerkRole=="1"?"(店长)":"(店员)"}}</view>
+      <view class="textcon-2">{{}}入店时间：{{stafflist.entryTimeStr}}</view>
+    </view>
+  </view>
+  <view class="page-item">
+    <text>电话</text>
+    <text style="color:#999">{{stafflist.bindTel}}</text>
+  </view>
+  <!-- <view class='shopimg'>
+    <view class='shopimgtxt'>相片（证件照）</view>
+    <view class='shopimgs'>
+      <image src='{{}}' class='imgs'></image>
+    </view>
+  </view>
+  <view class='shopimg'>
+    <view class='shopimgtxt'>身份证（正反面照片）</view>
+    <view class='shopimgs'>
+      <image src='{{}}' class='imgs'></image>
+    </view>
+  </view>
+  <view class='shopimg'>
+    <view class='shopimgtxt'>健康证</view>
+    <view class='shopimgs'>
+      <image src='{{}}' class='imgs'></image>
+    </view>
+  </view> -->
+  <!-- <view class="footer">
+    <view class='item'>
+      <image class='images' src='{{Cancellation}}'></image>
+      <text class="item-text">注销</text>
+    </view>
+    <view class='item'>
+      <image class='images' src='{{edit}}'></image>
+      <text class="item-text">编辑</text>
+    </view>
+  </view> -->
+  <view class="btninfo" bindtap="delete">
+    <image class='images' src='{{Cancellation}}'></image>
+    <text class="item-text">注销</text>
+  </view>
+</view>

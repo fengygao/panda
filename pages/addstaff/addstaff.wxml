@@ -1,0 +1,72 @@
+<!--pages/addstaff/addstaff.wxml-->
+<view class="page-body">
+  <view class="page-ul">
+    <view class="page-item">
+      <view>
+        手机
+        <text style="color:#999">(默认登录账号)</text>
+      </view>
+      <input class="weui-input" type="number" placeholder="请填写" bindinput="input1" />
+    </view>
+    <view class="page-item">
+      <text>姓名</text>
+      <input class="weui-input" type="text" placeholder="请填写" bindinput="input2" />
+    </view>
+    <view class="page-item">
+      <text>性别</text>
+      <view class="section">
+        <picker range="{{array}}" value="{{index}}" bindchange="bindPickerChange">
+          <view class="picker">
+            {{array[index] || '请选择 >'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="page-item">
+      <text>身份证号</text>
+      <input class="weui-input" type="idcard" placeholder="请填写" bindinput="input3" />
+    </view>
+    <view class="page-item">
+      <text>入职时间</text>
+      <view class="section">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date || '请选择 >'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="page-tr">权限设置</view>
+    <view class="page-ul">
+      <view class="page-item">
+        <text>录入销售额</text>
+        <view class="body-view">
+          <switch checked="{{switch1Checked}}" bindchange="switch1Change" />
+        </view>
+      </view>
+      <view class="page-item">
+        <text>服务申请</text>
+        <view class="body-view">
+          <switch checked="{{switch2Checked}}" bindchange="switch2Change" />
+        </view>
+      </view>
+    </view>
+  </view>
+    <!-- 商品图片 -->
+    <!--<view class='shopimg'>
+      <view class='shopimgtxt'>添加相片（证件照）</view>
+      <view class='shopimgs'>
+        <!-- 上传的图片 -->
+    <!-- <view wx:for="{{tempFilePaths}}" wx:key="{{index}}" class='imgcommon'>
+          <image src="{{item}}" data-index='{{index}}' catchtap='previewImg' mode="aspecFill" class='imgs'>
+            <image src='../../image/redcha.png' catchtap='removeimg' class='removeimg' data-index="{{index}}"></image>
+          </image>
+        </view> -->
+    <!-- 添加图片的按钮，图片超过3张消失-->
+    <!-- <image  src='../../image/addimg.png' class='imgs' bindtap='chooseimage'></image>
+      </view>
+    </view> -->
+    <view class="btninfo">
+      <button type="warn" disabled="{{disabled}}" bindtap="btnsubmit">提交</button>
+    </view>
+  </view>

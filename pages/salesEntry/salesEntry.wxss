@@ -37,7 +37,7 @@
 }
 /* 添加图片 */
 .shopimg{
-  height: 320rpx;
+  min-height: 550rpx;
   background: #fff;
   padding: 0 30rpx;
 }

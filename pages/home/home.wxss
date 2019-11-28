@@ -96,21 +96,21 @@ button:last-child {
   margin-bottom: 0;
 }
 
-.page-section-title {
+/* .page-section-title {
   padding: 0;
-}
+} */
 
 .swiper-item {
   display: block;
   height: 150px;
   width: 100%;
-  padding: 10rpx 0;
+  /* padding: 10rpx 0; */
 }
 
-.page-section-title {
+/* .page-section-title {
   margin-top: 60rpx;
   position: relative;
-}
+} */
 
 .info {
   position: absolute;
@@ -183,5 +183,5 @@ button:last-child {
 .wcharts-tit{
   /* display: flex;
   justify-content: space-between; */
-  padding:20rpx 20rpx 20rpx 40rpx;
+  padding:20rpx 20rpx 20rpx 20rpx;
 }

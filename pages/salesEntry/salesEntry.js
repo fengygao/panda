@@ -3,6 +3,8 @@ import {
   Api
 } from "../../services/Api.js"
 let UserApi = new Api()
+const app = getApp()
+var util = require('../../utils/md5.js')
 Page({
 
   /**
@@ -18,11 +20,12 @@ Page({
     imgpath: [],
     start: '', //录入日期开始区间
     end: '', //录入日期结束区间
-    dayId:''
+    dayId:'',
+    replaceImg:'0'//上传的图片变更
 
   },
   input1: function(e) {
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     let salesvolume = e.detail.value
     if (salesvolume) {
       this.setData({
@@ -33,7 +36,7 @@ Page({
     }
   },
   input2: function(e) {
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     let salespens = e.detail.value
     if (salespens) {
       this.setData({
@@ -54,7 +57,7 @@ Page({
   timehandTap2: function(symbol) {
     symbol = symbol || '-';
     let date = new Date();
-    console.log(date)
+    // console.log(date)
     let year = date.getFullYear();
     let month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
     let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
@@ -65,7 +68,7 @@ Page({
     let date = new Date();
     date = date.setDate(date.getDate() + n);
     date = new Date(date)
-    console.log(date)
+    // console.log(date)
     let year = date.getFullYear();
     let month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
     let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
@@ -76,8 +79,8 @@ Page({
     let that = this;
     let times = this.timehandTap("-", -(2 + 1));
     let times2 = this.timehandTap2("-")
-    console.log(times)
-    console.log(times2)
+    // console.log(times)
+    // console.log(times2)
     that.setData({
       start: times,
       end: times2
@@ -88,14 +91,21 @@ Page({
   btnsubmit: function(e) {
     if (this.data.salesvolume && this.data.salespens && this.data.date && this.data.tempFilePaths) {
       let that = this;
+      console.log(this.data.tempFilePaths)
       if (wx.getStorageSync("resdata")) {
         let date = this.data.date.replace(/-/g, '')
         let obj = wx.getStorageSync("resdata")
         let _this = this;
+
+        // 当前时间戳
+        let timestamp = Date.parse(new Date());
+        //md5加密sign
+        let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+
         let data = {
-          "version": "1.0",
-          "timestamp": 123456,
-          "sign": "46b9a27dabb9f3392fff1cd127e5b2a0",
+          "version": app.globalData.version,
+          "timestamp": timestamp,
+          "sign": sign,
           "params": {
             "sale": this.data.salesvolume,
             "count": this.data.salespens,
@@ -104,11 +114,12 @@ Page({
             "contNo": obj.contNo,
             "mallId": obj.mallId,
             "dayId": this.data.dayId == '' ? '' : this.data.dayId,
-            "paths": this.data.tempFilePaths
+            "paths": this.data.tempFilePaths,
+            "replaceImg": this.data.replaceImg
           }
         }
         UserApi.salesubmit(data, (res) => {
-          console.log(res)
+          // console.log(res)
           if (res.code == "0") {
             wx.showToast({
               title: '提交成功',
@@ -137,22 +148,25 @@ Page({
   // 图片上传
   chooseimage: function() {
     var _this = this;
-    var len = 0;
-    if (_this.data.tempFilePaths != null) {
-      len = _this.data.tempFilePaths.length;
-    }
     var arrimg = []
+    console.log(this.data.tempFilePaths)
     //获取当前已有的图片
     wx.chooseImage({
-      count: 9 - len, //最多还能上传的图片数,这里最多可以上传9张
+      count: 9 , //最多还能上传的图片数,这里最多可以上传9张
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
       success(res) {
+        console.log(res.tempFilePaths)
         const tempFilePaths = res.tempFilePaths
         wx.showLoading({
           title: '上传中',
           mask: true
         })
+        // 当前时间戳
+        let timestamp = Date.parse(new Date());
+        //md5加密sign
+        let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+        
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.uploadFile({
             // url: 'http://rosefinch-dev/merchantMain_web/img/fileUpload.htm', //开发接口地址
@@ -163,9 +177,9 @@ Page({
               "Content-Type": "multipart/form-data"
             },
             formData: {
-              "version": "1.0",
-              "timestamp": 123456,
-              "sign": "46b9a27dabb9f3392fff1cd127e5b2a0",
+              "version": app.globalData.version,
+              "timestamp": timestamp,
+              "sign": sign,
               "creator": '12'
             },
             success(res) {
@@ -184,9 +198,10 @@ Page({
                   })
 
                   //  获取图片                
-                  console.log(arr)
+                  // console.log(arr)
                   _this.setData({
-                    tempFilePaths: arr
+                    tempFilePaths: arr,
+                    replaceImg: '1'
                   })
                 }
               }
@@ -208,13 +223,14 @@ Page({
   },
   // 点击图片删除本张图片
   removeimg(e) {
-    console.log(e)
+    // console.log(e)
     var dataindex = e.currentTarget.dataset.index;
     let arr;
     arr = this.data.tempFilePaths.splice(dataindex, 1);
 
     this.setData({
-      tempFilePaths: this.data.tempFilePaths
+      tempFilePaths: this.data.tempFilePaths,
+      replaceImg:'1'
     })
   },
   // 图片查看
@@ -247,22 +263,28 @@ Page({
     })
     if (wx.getStorageSync('resdata')) {
       let object = wx.getStorageSync('resdata')
-      console.log(object)
+      // console.log(object)
       this.setData({
         sectioninfo: object
       })
     }
 
-    console.log(this.data.dayId)
+    // console.log(this.data.dayId)
     let timesaa = this.timehandTap2("-")
     let timesday = timesaa.replace(/-/g, '')
-    console.log(timesday)
+    // console.log(timesday)
     if (wx.getStorageSync("resdata")) {
       let obj = wx.getStorageSync("resdata")
+
+      // 当前时间戳
+      let timestamp = Date.parse(new Date());
+      //md5加密sign
+      let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+
       let data = {
-        "version": "1.0",
-        "timestamp": 123456,
-        "sign": "46b9a27dabb9f3392fff1cd127e5b2a0",
+        "version": app.globalData.version,
+        "timestamp": timestamp,
+        "sign": sign,
         "params": {
           "saleYmd": timesday,
           "contNo": obj.contNo,

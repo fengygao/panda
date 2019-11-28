@@ -10,11 +10,7 @@
       <text style="color:#999">{{sectioninfo.contNo}}</text>
     </view>
   </view>
-  <view class="page-ul">
-    <view class="page-item">
-      <text>类型</text>
-      <text style="color:#999">{{sectioninfo.layoutName}}</text>
-    </view>
+  <view class="page-ul">    
     <view class="page-item">
       <text>销售额</text>
       <input class="weui-input" type="number" value="{{salesvolume}}" placeholder="请输入" bindinput="input1" />

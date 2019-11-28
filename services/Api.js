@@ -42,7 +42,7 @@ class Api extends request {
         handle(err)
       })
   }
-  // 销售录入
+  // 日销售录入
   salesubmit(data, handle) {
     this.Post('/merchantMain_web/sale/day/add.htm', data)
       .then(res => {
@@ -63,7 +63,7 @@ class Api extends request {
       })
   }
   //我的
-  Mine(data, handle) {
+  mine(data, handle) {
     this.Post('/supp/receipt/sVipCancel', data)
       .then(res => {
         handle(res)
@@ -132,7 +132,16 @@ class Api extends request {
         handle(err)
       })
   }
-
+  //周销售额
+  weeklySales(data, handle) {
+    this.Post('/merchantMain_web/sale/week.htm', data)
+      .then(res => {
+        handle(res)
+      })
+      .catch(err => {
+        handle(err)
+      })
+  }
 
 
 }

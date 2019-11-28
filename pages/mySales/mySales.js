@@ -3,6 +3,8 @@ import {
   Api
 } from "../../services/Api.js"
 let UserApi = new Api()
+const app = getApp()
+var util = require('../../utils/md5.js')
 Page({
   /**
    * 页面的初始数据
@@ -30,11 +32,16 @@ Page({
     this.setData({
       date: date,
     })
+    // 当前时间戳
+    let timestamp = Date.parse(new Date());
+    //md5加密sign
+    let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+
     let obj = wx.getStorageSync("resdata")
     let data = {
-      "version": "1.0",
-      "timestamp": 123456,
-      "sign": "46b9a27dabb9f3392fff1cd127e5b2a0",
+      "version": app.globalData.version,
+      "timestamp": timestamp,
+      "sign": sign,
       "params": {
         "saleYmd": this.data.date,
         "contNo": obj.contNo,
@@ -61,10 +68,15 @@ Page({
     this.setData({
       date: timesaa,
     })
+    // 当前时间戳
+    let timestamp = Date.parse(new Date());
+    //md5加密sign
+    let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+    
     let data = {
-      "version": "1.0",
-      "timestamp": 123456,
-      "sign": "46b9a27dabb9f3392fff1cd127e5b2a0",
+      "version": app.globalData.version,
+      "timestamp": timestamp,
+      "sign": sign,
       "params": {
         "saleYmd": timesaa,
         "contNo": obj.contNo,

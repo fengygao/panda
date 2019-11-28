@@ -11,7 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    src: '../../image/logo.png',
+    src1: '../../image/logo.png',
+    src2: '../../image/logo1.png',
+    src3: '../../image/logo2.png',
     acode: '../../image/aCode.png',
     phone: '../../image/phone.png',
     send: false,
@@ -88,6 +90,11 @@ Page({
       alreadySend: true,
       send: false
     })
+    // 当前时间戳
+    let timestamp = Date.parse(new Date());
+    //md5加密sign
+    let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+
     let setTimer = setInterval(
       () => {
         this.setData({
@@ -108,10 +115,7 @@ Page({
       mask: true
     })
 
-    // 当前时间戳
-    let timestamp = Date.parse(new Date());
-    //md5加密sign
-    let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+   
 
     let data = {
       "version": app.globalData.version,
@@ -131,12 +135,12 @@ Page({
           duration: 2000
         })
         // clearInterval(setTimer)
-        // this.setData({
-        //   second: 60,
-        //   disabled: false,
-        //   send: false,
-        //   alreadySend: false,
-        // })
+        this.setData({
+          // second: 60,
+          disabled: false,
+          // send: false,
+          // alreadySend: false,
+        })
       } else {
         wx.showToast({
           title: "发送失败",
@@ -155,7 +159,6 @@ Page({
   // 绑定手机登录及获取微信
   onSubmit: function(e) {
     var _this = this
-    wx.clearStorageSync()
     // 当前时间戳
     let timestamp = Date.parse(new Date());
     //md5加密sign
@@ -179,6 +182,18 @@ Page({
         wx.setStorageSync('resdata', res.data)
         wx.switchTab({
           url: '../../pages/home/home',
+        })
+      }
+      if (res.code == "1"){
+        wx.showToast({
+          title: "账户不存在!",
+          icon: 'none',
+          duration: 1000
+        })
+        this.setData({
+          disabled: true,
+          send:true,
+          info: ''
         })
       }
     })

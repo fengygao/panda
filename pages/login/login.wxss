@@ -3,35 +3,81 @@
 button {
   margin: 90rpx 60rpx;
 }
-.button-hover {
-  background-color: rgb(255, 81, 0);
+
+@keyframes myfirst {
+  from { 
+    opacity: 1; 
+  }
+  to {
+    opacity: 0;
+  }
 }
-.section__ctn .lab-img {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 10rpx;
+
+@keyframes youfirst {
+ from { 
+    opacity: 1; 
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes wefirst {
+ from { 
+    opacity: 0; 
+  }
+  to {
+    opacity: 1;
+  }
+}
+.lab-img1 {
+  position: absolute;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  display: block;
+  animation: myfirst 5s 0 infinite;
+  -webkit-animation: myfirst 5s 0 infinite; /* Safari 和 Chrome */
+}
+.lab-img2 {
+  position: absolute;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  display: block;
+  animation: youfirst 2s 1s infinite;
+  -webkit-animation: youfirst 2s 1s infinite; /* Safari 和 Chrome */
+}
+.lab-img3 {
+  position: absolute;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  display: block;
+  animation: wefirst 1s 3s infinite;
+  -webkit-animation: wefirst 1s 3s infinite; /* Safari 和 Chrome */
 }
 .section__ctn {
-  width: 125rpx;
-  height:125rpx;
-  -moz-box-shadow:6rpx 6rpx 12rpx 4rpx #ccc; 
-  box-shadow:6rpx 6rpx 12rpx 4rpx #ccc;
-  border-radius: 6rpx;
+  border-radius: 50%;
+  height: 180rpx;
+  width: 180rpx;
+  -moz-box-shadow: 6rpx 6rpx 12rpx 4rpx #e1785a;
+  box-shadow: 2rpx 10rpx 10rpx 6rpx #e1785a outset;
   text-align: center;
   margin: 120rpx auto;
-  padding:10rpx 6rpx;
-
 }
+
 .code-img {
   width: 60rpx;
   height: 60rpx;
   margin-top: 10rpx;
 }
+
 .recommend {
   text-align: center;
   height: 50rpx;
   margin: 40rpx 60rpx;
 }
+
 .recommend-title {
   display: table;
   width: 100%;
@@ -41,6 +87,7 @@ button {
   font-size: 30rpx;
   color: #409eff;
 }
+
 .recommend-title::before, .recommend-title::after {
   display: table-cell;
   content: "";
@@ -48,6 +95,7 @@ button {
   background: linear-gradient(#409eff, #409eff) repeat-x center;
   background-size: 0.1rem 0.1rem;
 }
+
 .page-section {
   display: flex;
   flex-direction: row;
@@ -55,20 +103,35 @@ button {
   line-height: 84rpx;
   margin: 20rpx 80rpx;
 }
+
 .weui-input {
   margin: 0 6px;
   width: 360rpx;
 }
+
 .msgsend {
   width: 70px;
   text-align: right;
 }
-.title{color: #999;text-align: center;font-size: 28rpx;}
 
-.title:before,.title:after{content: "";width: 100px;border-top: 1px #ccc solid; display: inline-block;
+.title {
+  color: #999;
+  text-align: center;
+  font-size: 28rpx;
+}
 
-vertical-align: middle;}
+.title:before, .title:after {
+  content: "";
+  width: 100px;
+  border-top: 1px #ccc solid;
+  display: inline-block;
+  vertical-align: middle;
+}
 
-.title:before{margin-right: 10px;}
+.title:before {
+  margin-right: 10px;
+}
 
-.title:after{margin-left: 10px;}
+.title:after {
+  margin-left: 10px;
+}

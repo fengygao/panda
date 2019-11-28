@@ -2,10 +2,8 @@ var app = getApp()
 const config = {
   // 开发   
   // url: 'http://rosefinch-dev'
-  //预发布
-  url: 'http://pre.re-est.com'
-  // 正式
-  // url:'https://www.google.com',
+  // 发布
+  url: 'https://pre.re-est.com:8201'
 }
 export {
   config

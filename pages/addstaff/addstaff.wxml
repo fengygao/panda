@@ -4,7 +4,7 @@
     <view class="page-item">
       <view>
         手机
-        <text style="color:#999">(默认登录账号)</text>
+        <text style="color:#999"></text>
       </view>
       <input class="weui-input" type="number" placeholder="请填写" bindinput="input1" />
     </view>

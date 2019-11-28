@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class="page">
-  <view class="page-section page-section-spacing swiper">
+  <view class="page-section ">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previous}}" next-margin="{{next}}">
       <block wx:for="{{images}}" wx:key="*this">
         <swiper-item>

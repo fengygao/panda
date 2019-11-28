@@ -1,7 +1,7 @@
 {
-  "pages": [   
-   "pages/login/login",
-   "pages/home/home",
+  "pages": [  
+    "pages/login/login",
+    "pages/home/home",
     "pages/salesEntry/salesEntry", 
     "pages/myStaff/myStaff",
     "pages/mySales/mySales",
@@ -39,8 +39,8 @@
     ]
   },
   "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
+    "request": 60000,
+    "uploadFile": 60000
   },
   "debug": true,
   "navigateToMiniProgramAppIdList": [

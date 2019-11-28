@@ -3,6 +3,8 @@ import {
   Api
 } from "../../services/Api.js"
 let UserApi = new Api()
+const app = getApp()
+var util = require('../../utils/md5.js')
 Page({
 
   /**
@@ -86,11 +88,16 @@ Page({
   },
   btnsubmit(){   
     if (this.data.phoneNum && this.data.staffName && this.data.index && this.data.identity && this.data.date){
+      // 当前时间戳
+      let timestamp = Date.parse(new Date());
+      //md5加密sign
+      let sign = util.hexMD5(timestamp + 'REEST2A72F53B39C');
+
       let userobj = wx.getStorageSync('resdata')
       let data = {
-        "version": "1.0",
-        "timestamp": 123456,
-        "sign": "46b9a27dabb9f3392fff1cd127e5b2a0",
+        "version": app.globalData.version,
+        "timestamp": timestamp,
+        "sign": sign,
         "params": {
           "id": '',
           "idNo": this.data.identity,

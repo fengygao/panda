@@ -95,12 +95,19 @@ App({
                 }
                 if (res.code == "0") {
                   console.log( '已绑定') 
-                  wx.setStorageSync('resdata', res.data)               
+                  wx.setStorageSync('resdata', res.data)      
                   wx.switchTab({
                     url: '../../pages/home/home',
                   })
                 }
               })
+            }else{
+              wx.showToast({
+                title: '服务器异常',
+                icon: '',
+                duration: 2000
+              })
+              return
             }
           })
           // wx.getSetting({

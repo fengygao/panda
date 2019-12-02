@@ -13,14 +13,6 @@ button {
   }
 }
 
-@keyframes youfirst {
- from { 
-    opacity: 1; 
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes wefirst {
  from { 
     opacity: 0; 
@@ -38,16 +30,8 @@ button {
   animation: myfirst 5s 0 infinite;
   -webkit-animation: myfirst 5s 0 infinite; /* Safari 和 Chrome */
 }
+
 .lab-img2 {
-  position: absolute;
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 50%;
-  display: block;
-  animation: youfirst 2s 1s infinite;
-  -webkit-animation: youfirst 2s 1s infinite; /* Safari 和 Chrome */
-}
-.lab-img3 {
   position: absolute;
   width: 180rpx;
   height: 180rpx;

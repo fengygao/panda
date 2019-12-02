@@ -17,8 +17,8 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "乐坊商户服务",
     "backgroundColor": "#F3F3F3",
-    "backgroundTextStyle": "light",
-    "enablePullDownRefresh": false
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#1296db", 
@@ -44,7 +44,7 @@
   },
   "debug": true,
   "navigateToMiniProgramAppIdList": [
-    "wxdb9bfca99c68a888"
+    "wx891212c0220451f9"
   ],
   "sitemapLocation": "sitemap60.json"
 }

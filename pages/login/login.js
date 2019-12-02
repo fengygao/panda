@@ -12,8 +12,7 @@ Page({
    */
   data: {
     src1: '../../image/logo.png',
-    src2: '../../image/logo1.png',
-    src3: '../../image/logo2.png',
+    src2: '../../image/logo2.png',
     acode: '../../image/aCode.png',
     phone: '../../image/phone.png',
     send: false,

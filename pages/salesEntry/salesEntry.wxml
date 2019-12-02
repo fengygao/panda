@@ -20,7 +20,7 @@
       <input class="weui-input" type="number" value="{{salespens}}" placeholder="请输入" bindinput="input2" />
     </view>
     <view class="page-item">
-      <text>录入时间</text>
+      <text>销售额日期</text>
       <view class="section">
         <picker mode="date" value="{{saleinfo.date}}" start="{{start}}" end="{{end}}" bindchange="bindDateChange">
           <view class="picker">

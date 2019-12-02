@@ -3,8 +3,7 @@
   <view>
     <view class="section__ctn">
       <image class="lab-img1" src="{{src1}}"></image>
-      <image class="lab-img2" src="{{src2}}"></image>
-       <image class="lab-img3" src="{{src3}}"></image>
+       <image class="lab-img2" src="{{src2}}"></image>
     </view>
     <view class="page-section">
       <!-- <text>手机号 :</text> -->

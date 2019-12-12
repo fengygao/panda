@@ -40,7 +40,7 @@
             <image src='../../image/redcha.png' catchtap='removeimg' class='removeimg' data-index="{{index}}"></image>
           </image>
         </view>
-        <!-- 添加图片的按钮，图片超过3张消失-->
+        <!-- 添加图片的按钮-->
         <image  src='../../image/addimg.png' class='imgs' bindtap='chooseimage'></image>
       </view>
   </view>

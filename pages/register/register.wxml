@@ -1,0 +1,5 @@
+<!--pages/register/register.wxml-->
+<view class="page-body">
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">账号登录</button>
+  <view class="title">推荐方式</view>
+</view>

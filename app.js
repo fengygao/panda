@@ -18,6 +18,7 @@ App({
     version: '1.0',
   },
   onLaunch: function() {
+   
     // 展示本地存储能力
     // 更新迭代后强制更新一下
     // const updateManager = wx.getUpdateManager()

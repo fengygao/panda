@@ -119,21 +119,27 @@ Page({
           }
         }
         UserApi.salesubmit(data, (res) => {
-          // console.log(res)
+          console.log(res)
           if (res.code == "0") {
             wx.showToast({
               title: '提交成功',
               icon: 'success',
               duration: 2000
             })
+            wx.navigateBack({
+              delta: 1
+            })
             that.setData({
               salesvolume: '', //销售额
               salespens: '', //销售笔数
               date: '', //日期
               tempFilePaths: [],
-            })
-            wx.navigateBack({
-              delta: 1
+            })          
+          }else{
+            wx.showToast({
+              title: '未授权录入销售额',
+              icon: '',
+              duration: 2000
             })
           }
         })
@@ -170,7 +176,8 @@ Page({
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.uploadFile({
             // url: 'http://rosefinch-dev/merchantMain_web/img/fileUpload.htm', //开发接口地址
-            url: 'http://pre.re-est.com/merchantMain_web/img/fileUpload.htm', //预发布接口地址
+            // url: 'http://pre.re-est.com/merchantMain_web/img/fileUpload.htm', //预发布接口地址
+            url:'https://rosefinch.re-est.com/merchantMain_web/img/fileUpload.htm',
             filePath: tempFilePaths[i],
             name: 'file',
             header: {
@@ -340,8 +347,12 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
-
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    setTimeout(function () {
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
   },
 
   /**

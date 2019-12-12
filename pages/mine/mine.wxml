@@ -1,7 +1,8 @@
 <!--pages/mine/mine.wxml-->
 <view class="page">
-  <view  class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.clerkPhoto}}" ></image>
+  <view  class="userinfo" >
+    <!-- <image class="userinfo-avatar" src="{{userInfo.clerkPhoto}}" ></image> -->
+    <image class="userinfo-avatar" src="{{userInfo.clerkRole=='1'?dianzhang:dianyuan}}" ></image>
     <text  class="userinfo-nickname">{{userInfo.clerkName}} {{userInfo.clerkRole=="1"?"(店长)":"(店员)"}}</text>
   </view>
   <view class="list-wrapper">

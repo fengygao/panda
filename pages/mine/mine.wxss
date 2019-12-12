@@ -4,15 +4,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #d7004b;
+  background: #F56C6C;
   height:300rpx;
   padding-top: 60rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 140rpx;
+  height: 140rpx;
   margin: 20rpx;
+  background: #fff;
   border-radius: 50%;
 }
 

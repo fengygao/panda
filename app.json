@@ -16,9 +16,10 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "乐坊商户服务",
-    "backgroundColor": "#F3F3F3",
+    "backgroundColor": "#fff",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true
+    
   },
   "tabBar": {
     "selectedColor": "#1296db", 

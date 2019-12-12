@@ -1,7 +1,8 @@
 <!--pages/addstaff/addstaff.wxml-->
 <view class="page-body">
   <view class="staffli">
-    <image class='item-image' src='{{stafflist.clerkPhotoList[0].path}}'></image>
+    <!-- <image class='item-image' src='{{stafflist.clerkPhotoList[0].path}}'></image> -->
+    <image class='item-image' src="{{stafflist.clerkRole=='1'?dianzhang:dianyuan}}" ></image>
     <view class='textcon'>
       <view class="textcon-1">{{stafflist.clerkName}}{{stafflist.clerkRole=="1"?"(店长)":"(店员)"}}</view>
       <view class="textcon-2">{{}}入店时间：{{stafflist.entryTimeStr}}</view>

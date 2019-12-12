@@ -4,7 +4,7 @@
     <view>
       <block wx:for="{{stafflist}}" wx:key="id">
         <view class="staffli" hover-class="staffli_active" data-index='{{index}}' bindtap="staffDetail">
-          <image class='item-image' src='{{item.clerkPhotoList[0].path}}'></image>
+          <image class='item-image' src="{{item.clerkRole=='1'?dianzhang:dianyuan}}" ></image>
           <view class='textcon'>
             <view class="textcon-1">{{item.clerkName}}{{item.clerkRole=="1"?"(店长)":"(店员)"}}</view>
             <view class="textcon-2">入店时间：{{item.entryTimeStr}}</view>

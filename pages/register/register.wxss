@@ -1,0 +1,16 @@
+/* pages/register/register.wxss */
+
+.title{color: #999;text-align: center;font-size: 28rpx;}
+
+.title:before,.title:after{content: "";width: 100px;border-top: 1px #ccc solid; display: inline-block;
+
+vertical-align: middle;}
+
+.title:before{margin-right: 10px;}
+
+.title:after{margin-left: 10px;}
+button {
+  background: #409EFF;
+  color:#fff;
+  margin: 90rpx 60rpx;
+}

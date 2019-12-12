@@ -11,7 +11,9 @@ Page({
       { text: '我的活动', url: '', icon: '../../image/activity.png', tips: '' },
       { text: '违约单', url: '', icon: '../../image/Default.png', tips: '' }
     ],
-    toright:'../../image/toright.png'
+    toright:'../../image/toright.png',
+    dianzhang: '../../image/dianzhang.png',
+    dianyuan: '../../image/dianyuan.png'
   },
 
   /**
@@ -63,7 +65,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    setTimeout(function () {
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
   },
 
   /**

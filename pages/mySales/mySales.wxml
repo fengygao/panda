@@ -14,9 +14,9 @@
   <view class="list-tit">本月销售录入</view>
     <block wx:for="{{salelist}}" wx:key="index">
       <view class="list-item" hover-class="list-item_active">
-          <text class="item-text">{{index+1}}、</text>     
-          <text class="item-text">销售额:{{item.sale}}</text>
-          <text class="item-text">销售笔数:{{item.count}}</text>
+          <text class="item-text">{{index+1}},</text>     
+          <text class="item-text">销售额:{{item.sale}};</text>
+          <text class="item-text">笔数:{{item.count}};</text>
           <text class="item-text">日期:{{item.saleYmd}}</text>  
       </view>
     </block>
